@@ -1,3 +1,6 @@
+/**
+ * why to use primitives when they are not Object Oriented?
+ */
 package checkB4Dying;
 
 public class TheWrapperClass {

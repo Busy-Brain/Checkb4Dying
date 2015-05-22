@@ -1,3 +1,6 @@
+/**
+ * Should we sort data in arrays before processing them?
+ */
 package checkB4Dying;
 
 import java.util.Arrays;
@@ -13,13 +16,20 @@ public class SortedArray {
         for (int c = 0; c < arraySize; ++c)
             data[c] = rnd.nextInt() % 256;
         
-        test(arraySize, data);
+       long timeTakenBeforeSort= test(arraySize, data);
         long curr=System.nanoTime();
         Arrays.sort(data);
-        System.out.println("Time taken in sorting"+(System.nanoTime()-curr));
-		test(arraySize, data);
+        long timeTakenInSorting = System.nanoTime()-curr;
+		System.out.println("Time taken in sorting"+timeTakenInSorting);
+		long timeTakenAfterSort=test(arraySize, data);
+		
+		System.out.println("=============");
+		System.out.println("TIME b4 sort   : "+timeTakenBeforeSort);
+		System.out.println("TIME with sort : "+(timeTakenInSorting+timeTakenAfterSort));
+		
+		
 	}
-	private static void test(int arraySize, int[] data) {
+	private static long test(int arraySize, int[] data) {
 		long start = System.nanoTime();
 		long sum = 0;
 
@@ -30,9 +40,10 @@ public class SortedArray {
 					sum += data[c];
 			}
 		}
-
-		System.out.println(System.nanoTime() - start);
+		long timetaken=System.nanoTime() - start;
+		System.out.println(timetaken);
 		System.out.println("sum = " + sum);
+		return timetaken;
 	}
 	
 }

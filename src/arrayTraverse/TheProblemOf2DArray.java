@@ -5,6 +5,7 @@ package arrayTraverse;
  * Here we are initializing a 2 D array of arbitrary size. (For simplycity we have used a square 2 D array)
  * We are going to iterate the same array in two ways and analyse the outcome
  * 
+ * The performance differs greatly  in both type of iterations
  * @author mohit
  *
  */

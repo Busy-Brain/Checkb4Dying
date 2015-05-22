@@ -1,3 +1,6 @@
+/**
+ * Does sorted values impact performance of Maps, (which by the way are unordered)
+ */
 package checkB4Dying;
 
 import java.util.HashMap;
@@ -9,13 +12,13 @@ public class IterateItMap {
 	private static final int SIZE=9999999;
 	public static void main(String[] args) {
 		final int[] dataset=getRandomValuesArray();
-		Map(new HashMap<Integer,Integer>(),"hashmap random",dataset);
-		Map(new TreeMap<Integer,Integer>(),"treemap random",dataset);
+		storeAndRetrieveAllElements(new HashMap<Integer,Integer>(),"hashmap random",dataset);
+		storeAndRetrieveAllElements(new TreeMap<Integer,Integer>(),"treemap random",dataset);
 		final int[] sorted=getSortedValuesArray();
-		Map(new HashMap<Integer,Integer>(),"hashmap sorted",sorted);
-		Map(new TreeMap<Integer,Integer>(),"treemap sorted",sorted);
+		storeAndRetrieveAllElements(new HashMap<Integer,Integer>(),"hashmap sorted",sorted);
+		storeAndRetrieveAllElements(new TreeMap<Integer,Integer>(),"treemap sorted",sorted);
 	}
-	private static void Map(Map<Integer,Integer> map,String name,final int[] dataset) {
+	private static void storeAndRetrieveAllElements(Map<Integer,Integer> map,String name,final int[] dataset) {
 		long curr= System.currentTimeMillis();
 		
 		for(int i=0;i<SIZE;i++){
